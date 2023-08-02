@@ -9,7 +9,6 @@
     sudo apt install libffi7
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com --recv 7AE645C0CF8E292A
     sudo apt update
-    sudo apt update
     sudo apt install pritunl -y
     sudo apt install mongodb-org -y
     sudo systemctl start pritunl mongod
@@ -17,6 +16,7 @@
     sudo systemctl status pritunl
 
 Access the UI on your IP 
+
 TO generate setup-key and credential
 
     sudo pritunl setup-key
