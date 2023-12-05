@@ -23,6 +23,9 @@ gpgkey=https://www.mongodb.org/static/pgp/server-6.0.asc
 EOF
 
         # Additional Amazon Linux setup
+        sudo yum update -y
+        sudo yum install amazon-linux-extras -y
+        sudo amazon-linux-extras install epel -y
         sudo yum -y install oracle-epel-release-el8
         sudo yum-config-manager --enable ol8_developer_EPEL
         sudo yum -y update
