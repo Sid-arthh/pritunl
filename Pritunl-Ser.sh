@@ -5,7 +5,6 @@ os_type=""
 get_os() {
     os_type=$(awk -F= '/^NAME/{gsub("\"", "", $2); print $2}' /etc/os-release)
     echo "$os_type"
-    return "$os_type"
 }
 
 # Function to install dependencies and Pritunl
