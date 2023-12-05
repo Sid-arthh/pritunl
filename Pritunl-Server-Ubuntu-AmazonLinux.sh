@@ -78,7 +78,7 @@ EOF
         sudo apt -y install pritunl mongodb-org
         sudo systemctl enable mongod pritunl
         sudo systemctl start mongod pritunl
-
+        exit 1
     else
         echo "Unsupported operating system."
         exit 1
