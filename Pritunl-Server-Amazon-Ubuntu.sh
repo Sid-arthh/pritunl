@@ -88,6 +88,7 @@ EOF
 }
 
 # Detect the operating system
+echo "CALLING OS"
 os=$(get_os)
 
 # Install Pritunl based on the detected OS
