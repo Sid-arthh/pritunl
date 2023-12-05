@@ -9,8 +9,8 @@ get_os() {
 
 # Function to install dependencies and Pritunl
 install_pritunl() {
-    local os_type="$1"
-
+    os_type="$1"
+    echo "HELLO $os_type"
     if [ "$os_type" = "Amazon Linux" ]; then
         # Amazon Linux setup
         sudo tee /etc/yum.repos.d/mongodb-org-6.0.repo << 'EOF'
