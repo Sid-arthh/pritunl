@@ -2,7 +2,6 @@
 os_type=""
 # Function to detect the operating system
 get_os() {
-    if [ -f "/etc/os-release" ]; then
         os_type=$(awk -F= '/^NAME/{gsub("\"", "", $2); print $2}' /etc/os-release)
         echo "$os_type"
         if [ "$os_type" = "Amazon Linux" ]; then
@@ -12,9 +11,6 @@ get_os() {
         else
             echo "unknown"
         fi
-    else
-        echo "unknown"
-    fi
 }
 
 # Function to install dependencies and Pritunl
