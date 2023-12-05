@@ -4,7 +4,7 @@
 get_os() {
     if [ -f "/etc/os-release" ]; then
         os_type=$(awk -F= '/^NAME/{gsub("\"", "", $2); print $2}' /etc/os-release)
-        
+        echo "$os_type"
         if [ "$os_type" = "Amazon Linux" ]; then
             echo "amazon-linux"
         elif [ "$os_type" = "Ubuntu" ]; then
