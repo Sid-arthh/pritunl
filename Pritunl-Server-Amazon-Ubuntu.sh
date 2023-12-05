@@ -50,7 +50,7 @@ EOF
         sudo yum -y install pritunl mongodb-org
         sudo systemctl enable mongod pritunl
         sudo systemctl start mongod pritunl
-
+        exit 1
     elif [ "$os_type" = "Ubuntu" ]; then
         # Ubuntu setup
         sudo tee /etc/apt/sources.list.d/pritunl.list << 'EOF'
@@ -80,9 +80,9 @@ EOF
         sudo apt -y install pritunl mongodb-org
         sudo systemctl enable mongod pritunl
         sudo systemctl start mongod pritunl
-
+        exit 1
     else
-        echo "Unsupported operating system."
+        echo "Unsupported o.s."
         exit 1
     fi
 }
