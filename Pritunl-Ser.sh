@@ -1,25 +1,18 @@
 #!/bin/sh
 os_type=""
+
 # Function to detect the operating system
 get_os() {
-    if [ -f "/etc/os-release" ]; then
-        os_type=$(awk -F= '/^NAME/{gsub("\"", "", $2); print $2}' /etc/os-release)
-        echo "$os_type"
-        if [ "$os_type" = "Amazon Linux" ]; then
-            echo "amazon-linux"
-        elif [ "$os_type" = "Ubuntu" ]; then
-            echo "ubuntu"
-        else
-            echo "unknown"
-        fi
-    else
-        echo "unknown"
-    fi
+    os_type=$(awk -F= '/^NAME/{gsub("\"", "", $2); print $2}' /etc/os-release)
+    echo "$os_type"
+    return "$os_type"
 }
 
 # Function to install dependencies and Pritunl
 install_pritunl() {
-    if [ "$os_type" = "amazon-linux" ]; then
+    local os_type="$1"
+
+    if [ "$os_type" = "Amazon Linux" ]; then
         # Amazon Linux setup
         sudo tee /etc/yum.repos.d/mongodb-org-6.0.repo << 'EOF'
 [mongodb-org-6.0]
@@ -92,7 +85,7 @@ EOF
 }
 
 # Detect the operating system
-os=$(get_os)
+os_type=$(get_os)
 
 # Install Pritunl based on the detected OS
-install_pritunl "$os"
+install_pritunl "$os_type"
