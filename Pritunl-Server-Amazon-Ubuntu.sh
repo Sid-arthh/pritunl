@@ -3,7 +3,7 @@
 # Function to detect the operating system
 get_os() {
     if [ -f "/etc/os-release" ]; then
-        . /etc/os-release
+        ./etc/os-release
         if [ "$NAME" = "Amazon Linux" ]; then
             echo "amazon-linux"
         elif [ "$NAME" = "Ubuntu" ]; then
