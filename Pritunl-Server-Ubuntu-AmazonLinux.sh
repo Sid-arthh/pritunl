@@ -51,7 +51,7 @@ EOF
 
     elif [ "$1" == "ubuntu" ]; then
         # Ubuntu setup
-        sudo tee /etc/apt/sources.list.d/pritunl.list << EOF
+        sudo tee /etc/apt/sources.list.d/pritunl.list << 'EOF'
 deb http://repo.pritunl.com/stable/apt jammy main
 EOF
 
@@ -61,7 +61,7 @@ EOF
         # Alternative import from download if keyserver offline
         curl https://raw.githubusercontent.com/pritunl/pgp/master/pritunl_repo_pub.asc | sudo apt-key add -
 
-        sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list << EOF
+        sudo tee /etc/apt/sources.list.d/mongodb-org-6.0.list << 'EOF'
 deb https://repo.mongodb.org/apt/ubuntu jammy/mongodb-org/6.0 multiverse
 EOF
 
