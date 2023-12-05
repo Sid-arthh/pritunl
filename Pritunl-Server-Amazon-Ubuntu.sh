@@ -1,5 +1,5 @@
 #!/bin/sh
-
+os_type=""
 # Function to detect the operating system
 get_os() {
     if [ -f "/etc/os-release" ]; then
