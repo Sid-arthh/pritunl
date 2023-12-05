@@ -48,7 +48,7 @@ EOF
         sudo yum -y install pritunl mongodb-org
         sudo systemctl enable mongod pritunl
         sudo systemctl start mongod pritunl
-
+        exit 1
     elif [ "$1" = "ubuntu" ]; then
         # Ubuntu setup
         sudo tee /etc/apt/sources.list.d/pritunl.list << 'EOF'
